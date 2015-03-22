@@ -1,12 +1,12 @@
 activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt")
 
-features <- read.table("UCI HAR Dataset/features.txt") ## 561 obs of 2 vars, rownums incl
-features <- features[2] ## simplify, cut row numbers
-features <- as.vector(features[,1]) ## it works, but not pretty.
+features <- read.table("UCI HAR Dataset/features.txt")
+features <- features[2]
+features <- as.vector(features[,1])
 
-x_test <- read.table("UCI HAR Dataset/test/X_test.txt", colClasses = c("numeric"), col.names = features) ## 2947 obs of 561 vars
-y_test <- read.table("UCI HAR Dataset/test/y_test.txt") ## 2947 obs of 1 var
-subject_test <- read.table("UCI HAR Dataset/test/subject_test.txt") ## 2947 obs of 1 v
+x_test <- read.table("UCI HAR Dataset/test/X_test.txt", colClasses = c("numeric"), col.names = features)
+y_test <- read.table("UCI HAR Dataset/test/y_test.txt")
+subject_test <- read.table("UCI HAR Dataset/test/subject_test.txt")
 
 x_test <- x_test[c(201, 202, 214, 215, 227, 228, 240, 241, 253, 254, 503, 504, 516, 517, 529, 530, 542, 543)]
 
@@ -21,9 +21,9 @@ x_test$activity_labels <- factor(x_test$activity_labels, levels = c(1,2,3,4,5,6)
                                             "WALKING_DOWNSTAIRS","SITTING",
                                             "STANDING","LAYING"))
 
-x_train <- read.table("UCI HAR Dataset/train/X_train.txt", colClasses = c("numeric"), col.names = features) ## 7352 of 561 v
-y_train <- read.table("UCI HAR Dataset/train/y_train.txt") ## 7352 of 1 v
-subject_train <- read.table("UCI HAR Dataset/train/subject_train.txt") ## 7352 of 1 v
+x_train <- read.table("UCI HAR Dataset/train/X_train.txt", colClasses = c("numeric"), col.names = features)
+y_train <- read.table("UCI HAR Dataset/train/y_train.txt")
+subject_train <- read.table("UCI HAR Dataset/train/subject_train.txt")
 
 x_train <- x_train[c(201, 202, 214, 215, 227, 228, 240, 241, 253, 254, 503, 504, 516, 517, 529, 530, 542, 543)]
 
